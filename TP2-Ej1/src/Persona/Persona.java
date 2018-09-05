@@ -133,8 +133,15 @@ public class Persona {
 			this.altura = altura;
 		}
 
-		public boolean getEdad() {
-			return LocalDate.now().equals(this.fecha);
+		@SuppressWarnings("deprecation")
+		public int getEdad() {
+			
+			int diff = LocalDate.now().getYear()- this.fecha.getYear();
+			if ((LocalDate.now().getDayOfMonth() < this.fecha.getMonth() )|| 
+					((LocalDate.now().getDayOfMonth()== this.fecha.getMonth()) && (LocalDate.now().getDayOfMonth() > this.fecha.getDate()))) {
+				    diff--;
+				    }
+			return diff;
 		}
 		public double CorporalMass() {
 			double x=this.peso/Math.pow(this.altura, 2);
