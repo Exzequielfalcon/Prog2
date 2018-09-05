@@ -14,28 +14,6 @@ public class Persona {
 		private double peso=1;
 		private double altura=1;
 		
-		public Persona(String nombre, String apellido, int edad, Date fecha, int dni, char sexo, double peso,
-				double altura) {
-			this.nombre = nombre;
-			this.apellido = apellido;
-			this.edad = edad;
-			this.fecha = fecha;
-			this.dni = dni;
-			this.sexo = sexo;
-			this.peso = peso;
-			this.altura = altura;
-		}
-
-		public Persona(String apellido, int edad, Date fecha, int dni, char sexo, double peso, double altura) {
-			this.apellido = apellido;
-			this.edad = edad;
-			this.fecha = fecha;
-			this.dni = dni;
-			this.sexo = sexo;
-			this.peso = peso;
-			this.altura = altura;
-		}
-
 		public Persona(int dni) {
 			this.dni = dni;
 		}
@@ -51,40 +29,40 @@ public class Persona {
 			this.dni = dni;
 		}
 
-		public Persona(String nombre, String apellido, int edad, int dni) {
+		public Persona(String nombre, String apellido, Date fecha, int dni) {
 			this.nombre = nombre;
 			this.apellido = apellido;
-			this.edad = edad;
-			this.dni = dni;
-		}
-
-		public Persona(String nombre, String apellido, int edad, Date fecha, int dni) {
-			this.nombre = nombre;
-			this.apellido = apellido;
-			this.edad = edad;
 			this.fecha = fecha;
 			this.dni = dni;
 		}
 
-		public Persona(String nombre, String apellido, int edad, Date fecha, int dni, char sexo) {
+		public Persona(String nombre, String apellido, Date fecha, int dni, char sexo) {
 			this.nombre = nombre;
 			this.apellido = apellido;
-			this.edad = edad;
 			this.fecha = fecha;
 			this.dni = dni;
 			this.sexo = sexo;
 		}
-
-		public Persona(String nombre, String apellido, int edad, Date fecha, int dni, char sexo, double peso) {
+		
+		public Persona(String nombre, String apellido, Date fecha, int dni, char sexo, double peso) {
 			this.nombre = nombre;
 			this.apellido = apellido;
-			this.edad = edad;
 			this.fecha = fecha;
 			this.dni = dni;
 			this.sexo = sexo;
 			this.peso = peso;
 		}
-		
+
+		public Persona(String nombre, String apellido, Date fecha, int dni, char sexo, double peso, double altura) {
+			this.nombre = nombre;
+			this.apellido = apellido;
+			this.fecha = fecha;
+			this.dni = dni;
+			this.sexo = sexo;
+			this.peso = peso;
+			this.altura = altura;
+		}
+
 		public String getNombre() {
 			return nombre;
 		}
@@ -135,14 +113,17 @@ public class Persona {
 
 		@SuppressWarnings("deprecation")
 		public int getEdad() {
+			System.out.println(this.fecha.getYear());
+			int diff = LocalDate.now().getYear() - this.fecha.getYear();
 			
-			int diff = LocalDate.now().getYear()- this.fecha.getYear();
 			if ((LocalDate.now().getDayOfMonth() < this.fecha.getMonth() )|| 
 					((LocalDate.now().getDayOfMonth()== this.fecha.getMonth()) && (LocalDate.now().getDayOfMonth() > this.fecha.getDate()))) {
 				    diff--;
 				    }
 			return diff;
 		}
+		
+		
 		public double CorporalMass() {
 			double x=this.peso/Math.pow(this.altura, 2);
 			return x;
@@ -155,17 +136,29 @@ public class Persona {
 			}
 		}
 		
-		public void Cumple() {
+		public boolean Cumple() {
 			if ((this.fecha.getYear()==(LocalDate.now().getYear()))&&(this.fecha.getDate()==(LocalDate.now().getDayOfMonth()))&& (this.fecha.getMonth()==(LocalDate.now().getMonthValue()))) {
-				System.out.println("Es tu cumpleaños!");
-			}
+				return true;
+			}else return false;
 		}
 		
-		public void EsMayor() {
-			
+		public boolean EsMayor() {
+			if(this.getEdad()>=18) {
+				return true;
+			}else return false;
 		}
 		
-		
+		public boolean Vote() {
+			if(this.getEdad()>=16) {
+				return true;
+			} else return false;
+		}
+
+		@Override
+		public String toString() {
+			return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + getEdad() + ", fecha=" + fecha.toString()
+					+ ", dni=" + dni + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + "]";
+		}
 
 		
 		
