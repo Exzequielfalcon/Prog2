@@ -9,5 +9,6 @@ public class main {
 		System.out.println(e1.AltaGama());
 		System.out.println(e1.Balance());
 	}
-
+	
+	
 }
