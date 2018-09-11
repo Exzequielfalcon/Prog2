@@ -37,6 +37,7 @@ public class Episodio {
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.flag = flag;
+		CheckClasf();
 	}
 	public Episodio(String titulo, String descripcion, boolean flag, int clasificacion) {
 		this.titulo = titulo;
@@ -58,14 +59,19 @@ public class Episodio {
 		try {
 			System.out.println("Ingrese una clasificacion entre 1 y 5");
 			int a=new Integer(entrada.readLine());
-			while (a<1||a>5) {
-				System.out.println("Ingrese una clasificacion entre 1 y 5");
-			}
-			this.clasificacion=a;
+			if((a<1||a>5)) {
+				System.out.println("El valor ingresado no es correcto");
+			} else this.clasificacion=a;
+			
 		}
 		catch(Exception exc) {
 			System.out.println(exc);
 		}
+	}
+	@Override
+	public String toString() {
+		return "Episodio [titulo=" + titulo + ", descripcion=" + descripcion + ", flag=" + flag + ", clasificacion="
+				+ clasificacion + "]";
 	}
 	
 	
