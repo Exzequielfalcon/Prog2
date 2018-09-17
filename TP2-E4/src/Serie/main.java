@@ -7,9 +7,7 @@ public class main {
 		Serie s1 = new Serie("Vikings","Hacha","YO","Accion",10);
 		Episodio e1 = new Episodio("juancin","kasd",true,1);
 		s1.getTemporada(1).setEpisodios(e1);
-		
 		System.out.println(s1.getTemporada(0).getEpisodios(1).getDescripcion());
-		
 	}
 
 }
