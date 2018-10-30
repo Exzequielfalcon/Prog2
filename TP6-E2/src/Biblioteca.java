@@ -43,4 +43,10 @@ public class Biblioteca {
 		Iterator<String> acc = a.iterator();
 		return acc;
 	}
+	
+	public Iterator<Libro> getLibros() {
+		return this.libros.iterator();
+	}
+	
+	
 }

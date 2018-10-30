@@ -49,6 +49,11 @@ public class Libro {
 			return true;
 		} else return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Libro [isbn=" + isbn + ", autor=" + autor + ", año=" + año + ", genero=" + genero + "]";
+	}
 	
 	
 }
