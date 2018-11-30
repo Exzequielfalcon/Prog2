@@ -40,10 +40,15 @@ public class Categoria extends Items{
 	}
 	
 	public void addProducto(Producto p) {
-		
 		if (c!=null&&c.cumple(p)) {
 			this.productos.add(p);
+		} else {
+			this.productos.add(p);
 		}
+	}
+	
+	public void addCategoria(Categoria c) {
+		this.productos.add(c);
 	}
 	
 	public boolean contienePalabra(String s) {
