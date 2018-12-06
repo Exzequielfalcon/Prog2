@@ -1,11 +1,14 @@
 package empleados;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import Notificacion.Notificacion;
 
 public class Grupo extends User{
 	private HashSet<User> empleados = new HashSet<>();
+	private Condicion c;
 	
 	public Grupo(String nombre, User miembro) {
 		super(nombre);
@@ -38,4 +41,19 @@ public class Grupo extends User{
 		}
 		return aux;
 	}
+	
+	public String getNombre() {
+		return null;
+	}
+	
+	public List<User> getEmpleados(){
+		HashSet<User> aux= new HashSet<>();
+		ArrayList<User> salida;
+		for (User i:empleados) {
+			aux.addAll(i.getEmpleados());
+		}
+		salida = new ArrayList<>(aux);
+		return salida;
+	}
+
 }

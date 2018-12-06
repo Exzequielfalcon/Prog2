@@ -1,6 +1,8 @@
 package empleados;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import Notificacion.Notificacion;
 
@@ -29,9 +31,14 @@ public class Empleado extends User {
 	public void getNotificacion(Notificacion n) {
 		this.notis.add(n);
 	}
-	
 	public int getCantMsjs() {
 		return this.notis.size();
+	}
+	
+	public List<User> getEmpleados(){
+		ArrayList<User> aux = new ArrayList<>();
+		aux.add(this);
+		return aux;
 	}
 
 }

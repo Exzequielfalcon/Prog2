@@ -1,5 +1,6 @@
 package Condicion;
 
+import java.util.HashSet;
 import java.util.Map.Entry;
 
 import Gastos.Gasto;
@@ -19,6 +20,8 @@ public class PorDetalle implements Condicion{
 				return true;
 			}
 		}
-		return false;
+		HashSet<String> e = new HashSet<>(g.getDetalles().keySet());
+		HashSet<String> d = new HashSet<>(g.getDetalles().values());
+ 		return false;
 	}
 }
