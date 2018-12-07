@@ -36,6 +36,12 @@ public class Gasto extends Dinero{
 		return aux;
 	}
 	
+	public List<Gasto> getGasto(){
+		List<Gasto> a =new ArrayList<Gasto>();
+		a.add(this);
+		return a;
+	}
+	
 	public HashMap<String,String> getDetalles(){
 		return new HashMap<String,String>(this.detalles);
 	}

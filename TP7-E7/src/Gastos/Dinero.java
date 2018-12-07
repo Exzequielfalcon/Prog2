@@ -17,6 +17,6 @@ public abstract class Dinero {
 	
 	public abstract int getMonto();
 	public abstract List<Gasto> getTotal(Condicion c);
-	
+	public abstract List<Gasto> getGasto();
 	public abstract HashMap<String,String> getDetalles();
 }

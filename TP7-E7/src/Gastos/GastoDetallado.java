@@ -7,7 +7,7 @@ import java.util.List;
 import Condicion.Condicion;
 
 public class GastoDetallado extends Dinero{
-	protected ArrayList<Gasto> gastos = new ArrayList<>();
+	protected ArrayList<Dinero> gastos = new ArrayList<>();
 	
 	public GastoDetallado(int fecha, int monto, Gasto gasto) {
 		super(fecha,monto);
@@ -16,7 +16,7 @@ public class GastoDetallado extends Dinero{
 	
 	public int getMonto() {
 		int aux=0;
-		for (Gasto i:gastos) {
+		for (Dinero i:gastos) {
 			aux+=i.getMonto();
 		}
 		return aux;
@@ -24,17 +24,27 @@ public class GastoDetallado extends Dinero{
 	
 	public List<Gasto> getTotal(Condicion c){
 		ArrayList<Gasto> lista = new ArrayList<>();
-		for (Gasto i:gastos) {
-			if(c.cumple(i)) {
-				lista.add(i);
+		for (Dinero j:gastos) {
+			for(Gasto i:j.getGasto()) {
+				if(c.cumple(i)) {
+					lista.add(i);
+				}
 			}
 		}
 		return lista;
 	}
 	
+	public List<Gasto> getGasto(){
+		List<Gasto> a = new ArrayList<>();
+		for(Dinero i:gastos) {
+			a.addAll(i.getGasto());
+		}
+		return a;
+	}
+	
 	public HashMap<String,String> getDetalles(){
 		HashMap<String,String> det = new HashMap<String,String>();
-		for(Gasto i:gastos) {
+		for(Dinero i:gastos) {
 			det.putAll(i.getDetalles());
 		}
 		return det;
