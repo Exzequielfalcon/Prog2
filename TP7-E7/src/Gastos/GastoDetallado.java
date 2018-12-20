@@ -25,11 +25,7 @@ public class GastoDetallado extends Dinero{
 	public List<Gasto> getTotal(Condicion c){
 		ArrayList<Gasto> lista = new ArrayList<>();
 		for (Dinero j:gastos) {
-			for(Gasto i:j.getGasto()) {
-				if(c.cumple(i)) {
-					lista.add(i);
-				}
-			}
+			lista.addAll(j.getGasto());
 		}
 		return lista;
 	}

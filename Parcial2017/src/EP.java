@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EP extends Empleado {
@@ -40,9 +41,9 @@ public class EP extends Empleado {
 		this.empleados.add(e);
 	}
 	
-	public List<String> OrdenadoNombre() {
-		ArrayList e = new ArrayList(this.empleados);
-		Collections.sort(e, new CompareName());
+	public List<Empleado> OrdenadoNombre(Comparator<Empleado> comparator) {
+		ArrayList<Empleado> e = new ArrayList<>(this.empleados);
+		Collections.sort(e, comparator);
 		return e;
 	}
 }

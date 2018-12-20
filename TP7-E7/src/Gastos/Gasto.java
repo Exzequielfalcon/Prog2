@@ -32,7 +32,9 @@ public class Gasto extends Dinero{
 
 	public List<Gasto> getTotal(Condicion c) {
 		ArrayList<Gasto> aux = new ArrayList<>();
-		aux.add(this);
+		if(c.cumple(this)) {
+			aux.add(this);
+		}
 		return aux;
 	}
 	

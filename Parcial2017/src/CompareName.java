@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class CompareName implements Comparator<Empleado> {
+public class CompareName implements Comparador {
 
 	public int compare(Empleado e1,Empleado e2) {
 		// TODO Auto-generated method stub
